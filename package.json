@@ -1,0 +1,17 @@
+{
+  "name": "gstclone",
+  "version": "1.0.0",
+  "description": "GST number validator using OCR and REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "request": "^2.88.2"
+  }
+}

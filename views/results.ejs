@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+    <title>OCR data output html file</title>
+
+    <script>
+        function lookupGST() {
+            // getting the GST number from the input box
+            var gstNumber = document.getElementById("gstNum").value;
+
+            // two urls of server
+            var proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+            var url = "https://commonapi.mastersindia.co/commonapis/searchgstin?gstin=" + gstNumber;
+
+            // authentication details for the server
+            const gst_client = 'JarZChUcsytSBbnkpt';
+            const gst_secret = 'Bearer 0ab31ef7392227173c6e8d34195e86d5eb0da1e9';
+
+            const options = {
+                method: 'GET',
+                headers: {
+                    'Authorization': gst_secret,
+                    'client_id': gst_client
+                }
+            }
+
+            // calling the server
+            fetch((proxyUrl + url), options)
+                .then(function (response) { //checking if we got any response
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error("Network response was not ok.");
+                    }
+                })
+                .then(function (data) { // if we got a response, then we process it
+                    console.log(data);
+                    //printing the entire response on the screen in an HTML element. We can then isolate the sts value to check the status
+                    var status = data.data.sts;
+                    // document.getElementById("output").innerHTML = JSON.stringify(data, null, 2);
+                    document.getElementById("output").innerHTML = status;
+
+                })
+                .catch(function (error) {
+                    // catching any errors in the process
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        Merchant name: <input type="text" id="merchantName" value="<%=data.merchantName%>"> <br>
+        Merchant Address: <input type="text" id="merchantAddress" value="<%=data.merchantAddress%>"> <br>
+        Receipt Number: <input type="text" id="receiptNumber" value="<%=data.receiptNo%>"> <br>
+        Date: <input type="text" id="date" value="<%=data.date%>"> <br>
+        Total Amount <input type="text" id="totalAmt" value="<%=data.totalAmt%>"> <br>
+        GST Number on Bill: <input type="text" id="gstNum" value="<%=data.gstNum%>">
+        <button onclick="lookupGST()">Verify GST Number</button> <br>
+        <h4>Verification Status:
+            <pre id="output"></pre>
+        </h4>
+    </div>
+
+
+
+    <style>
+        /* Apply styles to the body element */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Apply styles to the main container */
+        #main {
+            max-width: 1400px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Apply styles to the form elements */
+        input[type="text"],
+        button {
+            display: block;
+            width: 95%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            background-color: #f7f7f7;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Keyframes for fadeInUp animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Additional styles for the output */
+        #output {
+            font-size: 18px;
+            color: #333;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+    </style>
+</body>
+
+</html>

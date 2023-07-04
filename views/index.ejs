@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST verification</title>
+</head>
+
+<body>
+    <div id="main">
+        <h1><u>Welcome to Invoice Verification Page!</u></h1> <br>
+        <!-- <h2>Below here, we've got a cool form where you can upload files for some magical Optical Character Recognition
+            (OCR) action!</h2> -->
+        <h2>Here is how to check if GST number is real or fake:</h2>
+        <ol>
+            <li>
+                <h4>Check the GST number on the bill and note it down</h4>
+            </li>
+            <li>
+                <h4>Visit this page and upload your bill in the form below. </h4>
+            </li>
+            <li>
+                <h4>You will see the business name registered, match it with the name of the business on invoice</h4>
+            </li>
+            <li>
+                <h4>Click on the check status button to see if their license is active or inactive.</h4>
+            </li>
+        </ol>
+    </div>
+    
+    <form method="POST" action="/ocr" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <div id="main">
+        <h2>Just click on the "Choose File" button, pick the file you want to verify for GST (Goods and Services Tax)
+            info, and hit the "Upload" button. Our OCR tech will work its magic and do the verification for you! So,
+            let's get started! 🚀😄</h2>
+    </div>
+
+    <style>
+        /* Apply styles to the body element */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+            margin: 0;
+            padding: 0;
+        }
+
+        #main {
+            margin-left: 25%;
+            display: grid;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 5px;
+            animation: fadeInUp 1s ease;
+            align-items: center;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        /* Style the heading element */
+        h1,
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        /* Style the form element */
+        form {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Style the file input and submit button */
+        input[type="file"],
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Keyframes for fadeInUp animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</body>
+
+</html>

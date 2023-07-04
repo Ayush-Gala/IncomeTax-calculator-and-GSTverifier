@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Tax Calculation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #00b0e8, #0070c0);
+        }
+
+        img{
+            width: 4%;
+            height: 4%;
+        }
+
+        header {
+            background: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #0070c0;
+        }
+
+        .content {
+            padding: 20px;
+            color: #000000;
+            text-align: center;
+        }
+
+        .calculator-button,
+        .gst-verification-button {
+            background: #0070c0;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .calculator-button:hover,
+        .gst-verification-button:hover {
+            background: #005aa0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <img src="satyamevjayate.png" alt="satyamev jayate" id="left"><h1><u>Indian Tax Calculation Website</u></h1> 
+        </div>
+    </header>
+    <div class="content">
+        <h2 class="fade-in-up">Benefits of Paying Tax on Time</h2>
+        <ul class="fade-in-up">
+            <li>Taxes fund public infrastructure and services. For example, in India, the country spends the highest
+                proportion of its GDP on public infrastructure and services, as compared to other emerging economies.
+                With a
+                year-on-year rise in capex of more than 35% and a targeted infrastructure investment of more than Rs 10
+                lakh
+                crore in Budget 2022-23, the Union government has reaffirmed its commitment to utilize infrastructure as
+                a
+                force multiplier for long-term economic growth.</li>
+            <li>Taxes are also used for social development and welfare programs. For example, the government of India
+                allocates
+                a substantial amount of revenue, about 6% of GDP, for various social development and welfare programs,
+                including
+                public health and nutrition, education, and rural development programs.</li>
+            <li>Taxes fund education. For example, in India, where illiteracy is a major problem, the government needs a
+                lot of
+                money to provide quality education; not only in urban areas but up to the grass root levels. This
+                includes public
+                and private expenditure on education, including spending on school infrastructure, teachers' salaries,
+                and
+                research, development and innovation.</li>
+            <!-- Add more benefits here -->
+        </ul>
+
+        <h2 class="fade-in-up">Ways to Save Tax in India</h2>
+        <p class="fade-in-up">
+            There are several legitimate ways to save tax in India, such as investing in tax-saving instruments like
+            Public Provident Fund (PPF), Equity-Linked Savings Scheme (ELSS), and National Savings Certificate (NSC).
+            Additionally, one can claim deductions on expenses like house rent, medical insurance, and education loans.
+            Consulting a tax expert can help you optimize your tax-saving strategies and ensure compliance with the law.
+        </p>
+
+        <p>Want to save tax? Click here! </p>
+        <a href="http://localhost:5000/calculator" class="calculator-button fade-in-up">Tax Calculator</a> <br>
+        <br><br>
+        <hr>    
+    </div>
+    <div class="content">
+        <h2 class="fade-in-up">Challenges with GST</h2>
+        <p class="fade-in-up">
+            The Goods and Services Tax (GST) is a value-added tax levied on most goods and services sold for domestic
+            consumption. The GST is paid by consumers, but it is remitted to the government by the businesses selling
+            the goods and services. The introduction of Goods and Services Tax (GST) on July 1, 2017, replaced multiple
+            indirect taxes and aimed to create a unified market in India.
+            However, the GST implementation has been a challenge for many businesses, especially small and medium
+            enterprises (SMEs).
+        </p>
+        <h3 class="fade-in-up">Challenges with False GST payments</h3>
+        <ul class="fade-in-up">
+            <li>
+                Exploitation by businesses charging false GST, undermining the integrity of the GST system.
+            </li>
+            <li>
+                Lack of consumer awareness about applicable GST rates, making them susceptible to false GST charges.
+            </li>
+            <li>
+                Difficulty in verifying GST charges on bills, leaving consumers vulnerable to potential exploitation.
+            </li>
+        </ul>
+        <p class="fade-in-up">
+            Addressing these challenges requires effective consumer protection measures to raise awareness, enforce
+            penalties, and combat fraudulent practices. Our OCR-Aided GST Invoice Verification Software is a solution
+            designed to address the challenges associated with false GST payments and ensure accuracy in invoicing.
+            Leveraging Optical Character Recognition (OCR) technology, this software aims to provide businesses and
+            consumers with a robust and efficient tool for verifying GST charges on invoices.
+        </p>
+        <a href="http://localhost:5000/uploadInvoice" class="gst-verification-button fade-in-up">GST Verification</a>
+    </div>
+
+    <script>
+        // JavaScript code for fading in elements on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            fadeElements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+
+</html>
